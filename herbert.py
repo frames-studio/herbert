@@ -3,18 +3,20 @@ import csnd6
 
 # Defining our Csound ORC code within a triple-quoted, multline String
 orc = """
-sr=44100
-ksmps=32
+sr=96000
+ksmps=16
 nchnls=2
 0dbfs=1
 instr 1
 aout vco2 0.5, 440
-outs aout, aout
+amod vco2 1, 3333
+
+outs aout*amod, aout*amod
 endin"""
 
 
 # Defining our Csound SCO code
-sco = "i1 0 1"
+sco = "i1 0 .1"
 
 
 c = csnd6.Csound()
