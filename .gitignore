@@ -2,8 +2,19 @@
 __pycache__/
 *.py[cod]
 
+#sound files
+*.wav
+*.csd
+
+#pycharm
+.idea
+
+
 # C extensions
 *.so
+
+
+
 
 # Distribution / packaging
 .Python

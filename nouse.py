@@ -1,18 +1,20 @@
 import csnd6
 from random import randint
 from math import sin
-execfile('orchestra.py')
+execfile('orchestran.py')
 
 
 # Defining our Csound SCO code
 
 sco = ""
 t = 0
+dur = 1.0/60.0
 for x in range(0, 300):
-	sco += "i1 "+ `t` +" .01 "+ `randint(100,1000)` +" "+ `randint(1000,2000)` +"\n"
-	t+=sin(20*t+1)*sin(20*t+1)
+	sco += "i1 "+  `x/13.0` +  " " + `dur` + " \n"
+	sco += "i1 "+  `.1 + x/11.0` +  " " + `dur` + " \n"
+	sco += "i1 "+  `.2 + x/9.0` +  " " + `dur` + " \n"
 
-
+       
 c = csnd6.Csound()
 c.SetOption("-odac")  # Using SetOption() to configure Csound
                       # Note: use only one commandline flag at a time
